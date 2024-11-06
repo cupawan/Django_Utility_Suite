@@ -7,7 +7,7 @@ from Scripts.FormattingUtils import Formatter
 
 def get_posts_view(request):
     if request.method == "GET":
-        return render(request, 'reddit_index.html')
+        return render(request, 'RedditPostsAppTemplates/Index.html')
 
     elif request.method == "POST":
         subreddit = request.POST.get('subreddit')
@@ -20,6 +20,6 @@ def get_posts_view(request):
             body = Formatter().redditPostsEmailFormatter(posts = posts)
         except NotFound:
             error_message = "Please correct your input (remove spaces from subreddit name if any). This subreddit might not exist."
-            return render(request, 'error_page.html', {'error_message': error_message})
-        return render(request, 'reddit_results.html', {'posts': body})
+            return render(request, 'MasterTemplates/ErrorPage.html', {'error_message': error_message})
+        return render(request, 'RedditPostsAppTemplates/Results.html', {'posts': body})
 

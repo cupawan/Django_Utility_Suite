@@ -21,11 +21,11 @@ def daily_activity_view(request):
                 gs = GoogleSheetsAutomation()
                 ws = gs.select_worksheet(sheet_name="CUPAWAN", worksheet_index=0)
                 gs.insert_values(sheet = ws, append_row= list(data.values()))
-                return render(request, 'success.html')
+                return render(request, 'DailyActivityLoggerAppTemplates/Success.html')
             except Exception as e:
-                return render(request, 'error_page.html', {'error_message': str(e)})
+                return render(request, 'MasterTemplates/ErrorPage.html', {'error_message': str(e)})
 
     else:
         form = DailyActivityForm()
 
-    return render(request, 'daily_activity_form.html', {'form': form})
+    return render(request, 'DailyActivityLoggerAppTemplates/Index.html', {'form': form})

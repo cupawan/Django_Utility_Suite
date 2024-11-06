@@ -22,10 +22,10 @@ def translate_text(request):
                     'source': source,
                     'target' : obj.code_to_language(target)
                 }
-                return render(request, 'result.html',data)
+                return render(request, 'GoogleTranslationAppTemplates/Result.html',data)
             except Exception as e:
-                return render(request, 'error_page.html', {'error_message': str(e)})
+                return render(request, 'MasterTemplates/ErrorPage.html', {'error_message': str(e)})
     else:
         form = TranslateForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'GoogleTranslationAppTemplates/Index.html', {'form': form})
