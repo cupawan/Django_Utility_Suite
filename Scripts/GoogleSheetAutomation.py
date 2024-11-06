@@ -2,7 +2,6 @@ import os
 import json
 import gspread
 
-
 class GoogleSheetsAutomation:
     def __init__(self):
         self.secrets_filename = os.environ["GOOGLE_CLIENT_SECRETS_PATH"]

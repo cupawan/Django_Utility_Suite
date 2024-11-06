@@ -6,6 +6,7 @@ def update_server_view(request):
     if request.method == 'POST':
         try:
             repo = git.Repo('/home/cupawan/django_utility_suite')
+            repo.git.stash("save")
             origin = repo.remotes.origin
             origin.pull()
             return JsonResponse({'message': 'Updated PythonAnywhere successfully'}, status=200)

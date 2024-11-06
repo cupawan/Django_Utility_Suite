@@ -1,5 +1,7 @@
 
 class Formatter:
+    def __init__(self):
+        pass
 
     def redditPostsEmailFormatter(self,posts):
         body = ''''''

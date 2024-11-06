@@ -3,7 +3,6 @@ from django.conf import settings
 from .forms import DailyActivityForm
 from Scripts.GoogleSheetAutomation import GoogleSheetsAutomation
 
-
 def daily_activity_view(request):
     if request.method == "POST":
         form = DailyActivityForm(request.POST)
@@ -24,8 +23,6 @@ def daily_activity_view(request):
                 return render(request, 'DailyActivityLoggerAppTemplates/Success.html')
             except Exception as e:
                 return render(request, 'MasterTemplates/ErrorPage.html', {'error_message': str(e)})
-
     else:
         form = DailyActivityForm()
-
     return render(request, 'DailyActivityLoggerAppTemplates/Index.html', {'form': form})
