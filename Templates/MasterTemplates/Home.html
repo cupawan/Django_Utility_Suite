@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: offwhite;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -25,14 +50,14 @@
             <!-- Google Translation Tool -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'translate_text' %}" class="btn btn-success btn-block">
-                    Google Translation Tool
+                    Translation Tool
                 </a>
             </div>
 
             <!-- Reddit Posts Viewer -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'get_posts_view' %}" class="btn btn-info btn-block">
-                    Reddit Posts Viewer
+                    Reddit Posts
                 </a>
             </div>
 
