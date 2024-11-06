@@ -1,58 +1,113 @@
-<!-- templates/daily_activity_form.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Activity Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
+            color: #333;
         }
+
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #555;
         }
-        .form-group input[type="text"], .form-group input[type="date"], .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
         .form-group textarea {
-            height: 100px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
         }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
         .form-group button {
+            width: 100%;
             background-color: #4CAF50;
             color: white;
-            padding: 10px 15px;
+            font-size: 16px;
+            padding: 12px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+
         .form-group button:hover {
             background-color: #45a049;
         }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #388e3c;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Daily Activity Form</h2>
@@ -90,6 +145,12 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:pavan11896@gmail.com">pavan11896@gmail.com</a></p>
+            <p>GitHub: <a href="https://www.github.com/cupawan" target="_blank">Pawan Kumar</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/cupawan" target="_blank">Pawan Kumar</a></p>
+        </div>
     </div>
 </body>
+
 </html>
