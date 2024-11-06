@@ -2,10 +2,10 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('/', include('MaintainanceApp.urls')),
     path('dev/', include('GoogleTranslationApp.urls')),
     path('dev/', include('RedditPostsApp.urls')),
     path('dev/', include('YouTubeToolsApp.urls')),
     path('dev/', include('MaintainaceApp.urls')),
-    path('health/', include('DailyActivityLoggerApp.urls')),
+    path('dev/', include('DailyActivityLoggerApp.urls')),
     ]
