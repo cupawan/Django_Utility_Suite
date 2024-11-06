@@ -1,115 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Activity Form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 60px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
         }
-
         .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: #555;
+            margin-right: 10px;
+            width: 150px;
         }
-
-        .form-group input[type="text"],
-        .form-group input[type="date"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="date"]:focus,
-        .form-group textarea:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-
-        .form-group input[type="checkbox"] {
-            margin-right: 8px;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .form-group button {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 16px;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-group button:hover {
-            background-color: #45a049;
-        }
-
         .contact-info {
             margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #777;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        .contact-info a {
-            color: #4CAF50;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #388e3c;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h2>Daily Activity Form</h2>
         <form method="post">
             {% csrf_token %}
@@ -118,39 +29,42 @@
                 {{ form.date }}
             </div>
             <div class="form-group">
-                {{ form.learning }}
                 {{ form.learning.label_tag }}
+                {{ form.learning }}
             </div>
             <div class="form-group">
-                {{ form.meditation }}
                 {{ form.meditation.label_tag }}
+                {{ form.meditation }}
             </div>
             <div class="form-group">
-                {{ form.physical_activity }}
                 {{ form.physical_activity.label_tag }}
+                {{ form.physical_activity }}
             </div>
             <div class="form-group">
-                {{ form.sudoku }}
                 {{ form.sudoku.label_tag }}
+                {{ form.sudoku }}
             </div>
             <div class="form-group">
-                {{ form.reading_writing }}
                 {{ form.reading_writing.label_tag }}
+                {{ form.reading_writing }}
             </div>
             <div class="form-group">
                 {{ form.comments.label_tag }}
                 {{ form.comments }}
             </div>
             <div class="form-group">
-                <button type="submit">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:cupawan.newsletter@gmail.com">cupawan.newsletter@gmail.com</a></p>
-            <p>GitHub: <a href="https://www.github.com/cupawan" target="_blank">Pawan Kumar</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/cupawan" target="_blank">Pawan Kumar</a></p>
+        <div class="contact-info mt-4">
+            <a href="mailto:cupawan.newsletter@gmail.com" class="btn btn-primary" role="button">Email: Pawan Kumar</a>
+            <a href="https://www.github.com/cupawan" target="_blank" class="btn btn-dark" role="button">GitHub: Pawan Kumar</a>
+            <a href="https://www.linkedin.com/in/cupawan" target="_blank" class="btn btn-info" role="button">LinkedIn: Pawan Kumar</a>
         </div>
     </div>
-</body>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
