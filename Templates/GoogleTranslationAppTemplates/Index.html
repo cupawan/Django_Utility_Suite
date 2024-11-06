@@ -59,15 +59,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="form-container">
-            <h1>Translation App</h1>
+        <h2>Translation App</h2>
             <form method="post" action="{% url 'translate_text' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Translate</button>
             </form>
-        </div>
-
         <div class="contact-info">
             <p><a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a></p>
             <p><a href="https://www.github.com/cupawan" target="_blank"><b>Github</b></a></p>
