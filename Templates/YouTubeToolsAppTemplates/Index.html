@@ -124,8 +124,7 @@
         }
     
         /* Icons and Avatars */
-        #reddit-avatar,
-        #yt-logo {
+        #avatar{
             width: 75px;
             height: 85px;
             margin-bottom: 20px;
@@ -148,7 +147,7 @@
     
 </head>
 <body>
-    <img id="yt-logo" src="https://echoneon.co.uk/wp-content/uploads/2022/07/youtube-neon-lights.jpg" alt="YT">
+    <img id="avatar" src="https://echoneon.co.uk/wp-content/uploads/2022/07/youtube-neon-lights.jpg" alt="YT">
     <h1>Get Youtube Playlist Length</h1>
     <form method="post" action="{% url 'calculate_length_view' %}">
         {% csrf_token %}
