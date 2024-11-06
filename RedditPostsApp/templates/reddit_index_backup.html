@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Posts Search</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #3498db;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Reddit Posts</h1>
+    <form method="post" action="{% url 'get_posts_view' %}">
+        {% csrf_token %}
+        <label for="subreddit">Subreddit:</label>
+        <input type="text" name="subreddit" required>
+        
+        <label for="limit">Number of Posts:</label>
+        <input type="text" name="limit" required>
+        
+        <label for="filter">Filter By:</label>
+        <select name="filterby">
+            <option value="hot">Hot</option>
+            <option value="top">Top</option>
+            <option value="new">New</option>
+        </select>
+        
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
+
