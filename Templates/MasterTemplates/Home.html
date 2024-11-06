@@ -1,30 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 20px;
-            text-align: center;
-        }
-        h1 {
-            color: #e74c3c;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-    <h1>Hi, There</h1>
-    <p>This is me</p>
-    <div class="contact-info">
-        <p><a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a></p>
-        <p><a href="https://www.github.com/cupawan" target="_blank"><b>Github</b></a></p>
-        <p><a href="https://www.linkedin.com/in/cupawan" target="_blank"><b>LinkedIn</b></a></p>
-    </div>
-</body>
-</html>
 
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Utility Suite</h1>
+        <p class="text-center">Choose an application to get started:</p>
+
+        <div class="row text-center">
+            <!-- Daily Activity Logger -->
+            <div class="col-md-6 mb-3">
+                <a href="{% url 'daily_activity' %}" class="btn btn-primary btn-block">
+                    Daily Activity Logger
+                </a>
+            </div>
+
+            <!-- Google Translation Tool -->
+            <div class="col-md-6 mb-3">
+                <a href="{% url 'translate_text' %}" class="btn btn-success btn-block">
+                    Google Translation Tool
+                </a>
+            </div>
+
+            <!-- Reddit Posts Viewer -->
+            <div class="col-md-6 mb-3">
+                <a href="{% url 'get_posts_view' %}" class="btn btn-info btn-block">
+                    Reddit Posts Viewer
+                </a>
+            </div>
+
+            <!-- YouTube Playlist Length Calculator -->
+            <div class="col-md-6 mb-3">
+                <a href="{% url 'calculate_length_view' %}" class="btn btn-danger btn-block">
+                    YouTube Playlist Length Calculator
+                </a>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><b>Pawan</b></p>
+            <p><a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a></p>
+            <p><a href="https://www.github.com/cupawan" target="_blank"><b>Github</b></a></p>
+            <p><a href="https://www.linkedin.com/in/cupawan" target="_blank"><b>LinkedIn</b></a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>
