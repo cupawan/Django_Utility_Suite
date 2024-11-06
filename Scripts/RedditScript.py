@@ -1,5 +1,6 @@
 import os
 import praw
+import os
 
 class RedditData:
     def __init__(self):
