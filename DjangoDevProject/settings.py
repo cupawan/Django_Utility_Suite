@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     "GoogleTranslationApp",
     "RedditPostsApp",
     "YouTubeToolsApp",
-    "DailyActivityLoggerApp"
+    "DailyActivityLoggerApp",
+    "MaintainaceApp"
 ]
 
 MIDDLEWARE = [
