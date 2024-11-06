@@ -1,26 +1,60 @@
+<!-- templates/daily_activity_form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Activity Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
         .form-group {
-            display: flex;
-            align-items: center;
+            margin-bottom: 15px;
         }
         .form-group label {
-            margin-right: 10px;
-            width: 100px;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-        .contact-info {
-            margin-top: 100px;
+        .form-group input[type="text"], .form-group input[type="date"], .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h2>Daily Activity Form</h2>
         <form method="post">
             {% csrf_token %}
@@ -29,43 +63,39 @@
                 {{ form.date }}
             </div>
             <div class="form-group">
-                {{ form.learning.label_tag }}
                 {{ form.learning }}
+                {{ form.learning.label_tag }}
             </div>
             <div class="form-group">
-                {{ form.meditation.label_tag }}
                 {{ form.meditation }}
+                {{ form.meditation.label_tag }}
             </div>
             <div class="form-group">
-                {{ form.physical_activity.label_tag }}
                 {{ form.physical_activity }}
+                {{ form.physical_activity.label_tag }}
             </div>
             <div class="form-group">
-                {{ form.sudoku.label_tag }}
                 {{ form.sudoku }}
+                {{ form.sudoku.label_tag }}
             </div>
             <div class="form-group">
-                {{ form.reading_writing.label_tag }}
                 {{ form.reading_writing }}
+                {{ form.reading_writing.label_tag }}
             </div>
             <div class="form-group">
                 {{ form.comments.label_tag }}
                 {{ form.comments }}
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
-        <br>
-        <div class="contact-info mt-4 d-flex justify-content-center gap-2">
-            <a href="mailto:cupawan.newsletter@gmail.com" class="btn btn-primary" role="button">Email Me</a><br>
-            <a href="https://www.github.com/cupawan" target="_blank" class="btn btn-dark" role="button">GitHub</a><br>
-            <a href="https://www.linkedin.com/in/cupawan" target="_blank" class="btn btn-info" role="button">LinkedIn</a><br>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:cupawan.newsletter@gmail.com">cupawan.newsletter@gmail.com</a></p>
+            <p>GitHub: <a href="https://www.github.com/cupawan" target="_blank">Pawan Kumar</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/cupawan" target="_blank">Pawan Kumar</a></p>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
 </body>
 </html>
