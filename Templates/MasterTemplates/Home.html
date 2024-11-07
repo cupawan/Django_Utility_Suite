@@ -18,7 +18,7 @@
             --padding: 20px;
             --border-radius: 8px;
         }
-    
+
         /* Body and Container */
         body {
             font-family: var(--font-family);
@@ -27,7 +27,7 @@
             margin: 20px;
             text-align: center;
         }
-    
+
         .container {
             max-width: var(--max-width);
             margin: 50px auto;
@@ -36,20 +36,21 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: var(--border-radius);
         }
-    
+
         /* Headings */
-        h1, h2 {
+        h1,
+        h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-    
+
         /* Forms */
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-    
+
         label {
             font-size: 18px;
             color: #555;
@@ -57,7 +58,7 @@
             text-align: left;
             width: 100%;
         }
-    
+
         input[type="text"],
         input[type="date"],
         select,
@@ -70,7 +71,7 @@
             margin-bottom: 10px;
             box-sizing: border-box;
         }
-    
+
         /* Buttons */
         input[type="submit"],
         .form-group button,
@@ -84,34 +85,34 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-    
+
         input[type="submit"]:hover,
         .form-group button:hover,
         button:hover {
             background-color: var(--primary-color-hover);
         }
-    
+
         /* Form Group and Checkbox */
         .form-group {
             width: 100%;
             margin-bottom: 15px;
             text-align: left;
         }
-    
+
         .form-group label {
             font-weight: bold;
         }
-    
+
         .form-group input[type="checkbox"] {
             margin-right: 10px;
         }
-    
+
         /* Contact Info */
         .contact-info {
             margin-top: 30px;
             text-align: center;
         }
-    
+
         .contact-info a {
             color: var(--primary-color);
             text-decoration: none;
@@ -119,11 +120,11 @@
             margin: 0 10px;
             transition: color 0.3s;
         }
-    
+
         .contact-info a:hover {
             color: var(--primary-color-hover);
         }
-    
+
         /* Icons and Avatars */
         #avatar,
         #yt-logo {
@@ -131,29 +132,36 @@
             height: 85px;
             margin-bottom: 20px;
         }
-    
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            body, .container {
+
+            body,
+            .container {
                 margin: 10px;
                 padding: 15px;
             }
-            h1, h2 {
+
+            h1,
+            h2 {
                 font-size: 24px;
             }
-            label, input[type="submit"], .form-group button {
+
+            label,
+            input[type="submit"],
+            .form-group button {
                 font-size: 16px;
             }
         }
     </style>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <img id="avatar" src="https://img.icons8.com/color/512/sun.png" alt="Avatar">
-        <h1 class="text-center mb-4">Utility Suite</h1>
+    <div class="container">
+        <img id="avatar" src="https://img.icons8.com/color/256/hub" alt="Avatar">
+        <h2class="text-center mb-4">Utility Suite</h2>
         <p class="text-center">Choose an application to get started:</p>
 
         <div class="row text-center">
