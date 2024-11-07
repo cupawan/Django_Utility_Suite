@@ -17,7 +17,7 @@ class Formatter:
             if hasattr(post, 'preview') and 'images' in post.preview:
                 all_images = [x['source'] for x in post.preview['images']]
                 for image in all_images:
-                    post_body += f'<img src="{image["url"]}" alt="Post Image">\n'
+                    post_body += f'<img src="{image["url"]}" alt="Post Image" style="max-width: 100%; height: auto;">\n'
             post_body += f'<p>Upvotes: {post.ups} Comments: {post.num_comments}</p>'        
             if post.is_video:
                 post_body += f"<br><a class='watch-video-btn' href='https://reddit.com{post.permalink}'> Watch Video</a>"
