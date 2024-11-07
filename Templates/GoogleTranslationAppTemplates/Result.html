@@ -5,54 +5,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation Results</title>
-
     <style>
+        /* Global Styling */
+        :root {
+            --primary-color: #3498db;
+            --primary-color-hover: #2980b9;
+            --secondary-color: #333;
+            --background-color: #f5f5f5;
+            --white-color: #fff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --max-width: 600px;
+            --padding: 20px;
+            --border-radius: 8px;
+        }
+    
+        /* Body and Container */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .result-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+            margin: 20px;
             text-align: center;
-            width: 300px;
         }
-
-        h1 {
-            color: #333;
+    
+        .container {
+            max-width: var(--max-width);
+            margin: 50px auto;
+            padding: var(--padding);
+            background-color: var(--white-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+        }
+    
+        /* Headings */
+        h1, h2 {
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
-
-        p {
-            margin: 10px 0;
+    
+        /* Forms */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        a {
-            display: block;
-            margin-top: 10px;
-            color: #007bff;
+    
+        label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    
+        /* Buttons */
+        input[type="submit"],
+        .form-group button,
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        input[type="submit"]:hover,
+        .form-group button:hover,
+        button:hover {
+            background-color: var(--primary-color-hover);
+        }
+    
+        /* Form Group and Checkbox */
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    
+        .form-group label {
+            font-weight: bold;
+        }
+    
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    
+        /* Contact Info */
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+    
+        .contact-info a {
+            color: var(--primary-color);
             text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: color 0.3s;
         }
-
-        a:hover {
-            text-decoration: underline;
+    
+        .contact-info a:hover {
+            color: var(--primary-color-hover);
         }
-    </style>
+    
+        /* Icons and Avatars */
+        #avatar{
+            width: 75px;
+            height: 85px;
+            margin-bottom: 20px;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body, .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1, h2 {
+                font-size: 24px;
+            }
+            label, input[type="submit"], .form-group button {
+                font-size: 16px;
+            }
+        }
+    </style> 
 </head>
 
 <body>
     <div class="result-container">
+        <img id="avatar" src="https://img.icons8.com/color/256/pass.png" alt="Avatar">
         <h1>Translation Results</h1>
-
         {% if detectedLanguage %}
             <p>Detected Language: {{ detectedLanguage }}</p>
         {% endif %}

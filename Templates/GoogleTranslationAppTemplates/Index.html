@@ -124,8 +124,7 @@
         }
     
         /* Icons and Avatars */
-        #reddit-avatar,
-        #yt-logo {
+        #avatar{
             width: 75px;
             height: 85px;
             margin-bottom: 20px;
@@ -148,6 +147,7 @@
 </head>
 <body>
     <div class="container">
+        <img id="avatar" src="https://img.icons8.com/color/512/google-translate.png" alt="Avatar">
         <h2>Translation App</h2>
             <form method="post" action="{% url 'translate_text' %}">
                 {% csrf_token %}
