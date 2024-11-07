@@ -126,11 +126,11 @@
         }
 
         /* Icons and Avatars */
-        #avatar,
-        #yt-logo {
-            width: 75px;
-            height: 85px;
-            margin-bottom: 20px;
+        #avatar {
+            display: block;
+            margin: 0 auto;
+            max-width: 100px;
+            height: auto;
         }
 
         /* Responsive Design */
@@ -159,34 +159,31 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 text-center"> 
         <img id="avatar" src="https://img.icons8.com/color/512/sun.png" alt="Avatar">
         <h1 class="text-center mb-4">Utility Suite</h1>
         <p class="text-center">Choose an application to get started:</p>
 
         <div class="row text-center">
-            <!-- Daily Activity Logger -->
+            <!-- Buttons for each app link -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'daily_activity' %}" class="btn btn-primary btn-block">
                     Daily Activity Logger
                 </a>
             </div>
 
-            <!-- Google Translation Tool -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'translate_text' %}" class="btn btn-success btn-block">
                     Translation Tool
                 </a>
             </div>
 
-            <!-- Reddit Posts Viewer -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'get_posts_view' %}" class="btn btn-info btn-block">
                     Reddit Posts
                 </a>
             </div>
 
-            <!-- YouTube Playlist Length Calculator -->
             <div class="col-md-6 mb-3">
                 <a href="{% url 'calculate_length_view' %}" class="btn btn-danger btn-block">
                     YouTube Playlist Length Calculator
@@ -200,7 +197,7 @@
             <p><a href="https://www.linkedin.com/in/cupawan" target="_blank"><b>LinkedIn</b></a></p>
         </div>
     </div>
-
 </body>
+
 
 </html>
