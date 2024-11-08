@@ -1,192 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation App</title>
     <style>
-      /* Global Styling */
-      :root {
-        --primary-color: #3498db;
-        --primary-color-hover: #2980b9;
-        --secondary-color: #333;
-        --background-color: #f5f5f5;
-        --white-color: #2d2d30;
-        --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        --max-width: 600px;
-        --padding: 20px;
-        --border-radius: 8px;
-      }
-
-      /* Body and Container */
-      body {
-        font-family: var(--font-family);
-        background-color: var(--background-color);
-        color: var(--secondary-color);
-        margin: 20px;
-        text-align: center;
-      }
-
-      .container {
-        max-width: var(--max-width);
-        margin: 50px auto;
-        padding: var(--padding);
-        background-color: var(--white-color);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: var(--border-radius);
-      }
-
-      /* Headings */
-      h1,
-      h2 {
-        color: var(--primary-color);
-        margin-bottom: 20px;
-      }
-
-      /* Forms */
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      label {
-        font-size: 18px;
-        color: #555;
-        margin-bottom: 5px;
-        text-align: left;
-        width: 100%;
-      }
-
-      input[type="text"],
-      input[type="date"],
-      select,
-      textarea {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-      }
-
-      /* Buttons */
-      input[type="submit"],
-      .form-group button,
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: var(--primary-color);
-        color: var(--white-color);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      input[type="submit"]:hover,
-      .form-group button:hover,
-      button:hover {
-        background-color: var(--primary-color-hover);
-      }
-
-      /* Form Group and Checkbox */
-      .form-group {
-        width: 100%;
-        margin-bottom: 15px;
-        text-align: left;
-      }
-
-      .form-group label {
-        font-weight: bold;
-      }
-
-      .form-group input[type="checkbox"] {
-        margin-right: 10px;
-      }
-
-      /* Contact Info */
-      .contact-info {
-        margin-top: 30px;
-        text-align: center;
-      }
-
-      .contact-info a {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-size: 16px;
-        margin: 0 10px;
-        transition: color 0.3s;
-      }
-
-      .contact-info a:hover {
-        color: var(--primary-color-hover);
-      }
-
-      /* Icons and Avatars */
-      #avatar {
-        width: 75px;
-        height: 85px;
-        margin-bottom: 20px;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        body,
+        /* Global Styling */
+        :root {
+            --primary-color: #3498db;
+            --primary-color-hover: #2980b9;
+            --secondary-color: #333;
+            --background-color: #f5f5f5;
+            --white-color: #fff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --max-width: 600px;
+            --padding: 20px;
+            --border-radius: 8px;
+        }
+    
+        /* Body and Container */
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+            margin: 20px;
+            text-align: center;
+        }
+    
         .container {
-          margin: 10px;
-          padding: 15px;
+            max-width: var(--max-width);
+            margin: 50px auto;
+            padding: var(--padding);
+            background-color: var(--white-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
         }
-        h1,
-        h2 {
-          font-size: 24px;
+    
+        /* Headings */
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
-        label,
+    
+        /* Forms */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 100%;
+        }
+    
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    
+        /* Buttons */
         input[type="submit"],
-        .form-group button {
-          font-size: 16px;
+        .form-group button,
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-      }
-    </style>
-  </head>
-  <body>
+    
+        input[type="submit"]:hover,
+        .form-group button:hover,
+        button:hover {
+            background-color: var(--primary-color-hover);
+        }
+    
+        /* Form Group and Checkbox */
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    
+        .form-group label {
+            font-weight: bold;
+        }
+    
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    
+        /* Contact Info */
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+    
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+    
+        .contact-info a:hover {
+            color: var(--primary-color-hover);
+        }
+    
+        /* Icons and Avatars */
+        #avatar{
+            width: 75px;
+            height: 85px;
+            margin-bottom: 20px;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body, .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1, h2 {
+                font-size: 24px;
+            }
+            label, input[type="submit"], .form-group button {
+                font-size: 16px;
+            }
+        }
+    </style>    
+</head>
+<body>
     <div class="container">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="100"
-        height="100"
-        fill="currentColor"
-        class="bi bi-translate"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"
-        />
-        <path
-          d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"
-        />
-      </svg>
-      <h2>Translation App</h2>
-      <form method="post" action="{% url 'translate_text' %}">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">Translate</button>
-      </form>
-      <div class="contact-info">
-        <p>
-          <a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a>
-        </p>
-        <p>
-          <a href="https://www.github.com/cupawan" target="_blank"
-            ><b>Github</b></a
-          >
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/cupawan" target="_blank"
-            ><b>LinkedIn</b></a
-          >
-        </p>
-      </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
+            <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"/>
+            <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"/>
+          </svg>
+        <h2>Translation App</h2>
+            <form method="post" action="{% url 'translate_text' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Translate</button>
+            </form>
+        <div class="contact-info">
+            <p><a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a></p>
+            <p><a href="https://www.github.com/cupawan" target="_blank"><b>Github</b></a></p>
+            <p><a href="https://www.linkedin.com/in/cupawan" target="_blank"><b>LinkedIn</b></a></p>
+        </div>
     </div>
-  </body>
+</body>
 </html>
+
