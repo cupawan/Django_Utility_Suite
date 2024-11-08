@@ -1,193 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reddit Posts Search</title>
     <style>
-        /* Global Styling */
-        :root {
-            --primary-color: #3498db;
-            --primary-color-hover: #2980b9;
-            --secondary-color: #333;
-            --background-color: #f5f5f5;
-            --white-color: #fff;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --max-width: 600px;
-            --padding: 20px;
-            --border-radius: 8px;
-        }
+      /* Global Styling */
+      :root {
+        --primary-color: #3498db;
+        --primary-color-hover: #2980b9;
+        --secondary-color: #333;
+        --background-color: #f5f5f5;
+        --white-color: #2d2d30;
+        --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        --max-width: 600px;
+        --padding: 20px;
+        --border-radius: 8px;
+      }
 
-        /* Body and Container */
-        body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--secondary-color);
-            margin: 20px;
-            text-align: center;
-        }
+      /* Body and Container */
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--secondary-color);
+        margin: 20px;
+        text-align: center;
+      }
 
+      .container {
+        max-width: var(--max-width);
+        margin: 50px auto;
+        padding: var(--padding);
+        background-color: var(--white-color);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+      }
+
+      /* Headings */
+      h1,
+      h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      /* Forms */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 5px;
+        text-align: left;
+        width: 100%;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      /* Buttons */
+      input[type="submit"],
+      .form-group button,
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover,
+      .form-group button:hover,
+      button:hover {
+        background-color: var(--primary-color-hover);
+      }
+
+      /* Form Group and Checkbox */
+      .form-group {
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        font-weight: bold;
+      }
+
+      .form-group input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      /* Contact Info */
+      .contact-info {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .contact-info a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 16px;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .contact-info a:hover {
+        color: var(--primary-color-hover);
+      }
+
+      /* Icons and Avatars */
+      #avatar {
+        width: 75px;
+        height: 85px;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body,
         .container {
-            max-width: var(--max-width);
-            margin: 50px auto;
-            padding: var(--padding);
-            background-color: var(--white-color);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: var(--border-radius);
+          margin: 10px;
+          padding: 15px;
         }
 
-        /* Headings */
         h1,
         h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
+          font-size: 24px;
         }
 
-        /* Forms */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        label {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 5px;
-            text-align: left;
-            width: 100%;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        /* Buttons */
+        label,
         input[type="submit"],
-        .form-group button,
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .form-group button {
+          font-size: 16px;
         }
-
-        input[type="submit"]:hover,
-        .form-group button:hover,
-        button:hover {
-            background-color: var(--primary-color-hover);
-        }
-
-        /* Form Group and Checkbox */
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-weight: bold;
-        }
-
-        .form-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        /* Contact Info */
-        .contact-info {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 16px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: var(--primary-color-hover);
-        }
-
-        /* Icons and Avatars */
-        #avatar {
-            width: 75px;
-            height: 85px;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-
-            body,
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-
-            h1,
-            h2 {
-                font-size: 24px;
-            }
-
-            label,
-            input[type="submit"],
-            .form-group button {
-                font-size: 16px;
-            }
-        }
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-reddit"
-        viewBox="0 0 16 16">
-        <path
-            d="M6.167 8a.83.83 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661m1.843 3.647c.315 0 1.403-.038 1.976-.611a.23.23 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83s.83-.381.83-.83a.831.831 0 0 0-1.66 0z" />
-        <path
-            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.2.2 0 0 0-.153.028.2.2 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224q-.03.17-.029.353c0 1.795 2.091 3.256 4.669 3.256s4.668-1.451 4.668-3.256c0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165" />
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100"
+      height="100"
+      fill="currentColor"
+      class="bi bi-reddit"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M6.167 8a.83.83 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661m1.843 3.647c.315 0 1.403-.038 1.976-.611a.23.23 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83s.83-.381.83-.83a.831.831 0 0 0-1.66 0z"
+      />
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.2.2 0 0 0-.153.028.2.2 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224q-.03.17-.029.353c0 1.795 2.091 3.256 4.669 3.256s4.668-1.451 4.668-3.256c0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165"
+      />
     </svg>
     <h1>Search Reddit Posts</h1>
     <form method="post" action="{% url 'get_posts_view' %}">
-        {% csrf_token %}
-        <label for="subreddit">Subreddit</label>
-        <input type="text" name="subreddit" required>
+      {% csrf_token %}
+      <label for="subreddit">Subreddit</label>
+      <input type="text" name="subreddit" required />
 
-        <label for="limit">Number of Posts</label>
-        <input type="text" name="limit" required>
+      <label for="limit">Number of Posts</label>
+      <input type="text" name="limit" required />
 
-        <label for="filter">Filter By</label>
-        <select name="filterby">
-            <option value="top">Top</option>
-            <option value="new">New</option>
-            <option value="hot">Hot</option>
-        </select>
+      <label for="filter">Filter By</label>
+      <select name="filterby">
+        <option value="top">Top</option>
+        <option value="new">New</option>
+        <option value="hot">Hot</option>
+      </select>
 
-        <input type="submit" value="Search">
+      <input type="submit" value="Search" />
     </form>
 
     <div class="contact-info">
-        <p><a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a></p>
-        <p><a href="https://www.github.com/cupawan" target="_blank"><b>Github</b></a></p>
-        <p><a href="https://www.linkedin.com/in/cupawan" target="_blank"><b>LinkedIn</b></a></p>
+      <p>
+        <a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a>
+      </p>
+      <p>
+        <a href="https://www.github.com/cupawan" target="_blank"
+          ><b>Github</b></a
+        >
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/cupawan" target="_blank"
+          ><b>LinkedIn</b></a
+        >
+      </p>
     </div>
-</body>
-
+  </body>
 </html>

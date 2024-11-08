@@ -1,207 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reddit Posts Results</title>
     <style>
-        /* Global Styling */
-        :root {
-            --primary-color: #3498db;
-            --primary-color-hover: #2980b9;
-            --secondary-color: #333;
-            --background-color: #f5f5f5;
-            --white-color: #fff;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --max-width: 600px;
-            --padding: 20px;
-            --border-radius: 8px;
-        }
+      /* Global Styling */
+      :root {
+        --primary-color: #3498db;
+        --primary-color-hover: #2980b9;
+        --secondary-color: #333;
+        --background-color: #f5f5f5;
+        --white-color: #2d2d30;
+        --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        --max-width: 600px;
+        --padding: 20px;
+        --border-radius: 8px;
+      }
 
-        /* Body and Container */
-        body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--secondary-color);
-            margin: 20px;
-            text-align: center;
-        }
+      /* Body and Container */
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--secondary-color);
+        margin: 20px;
+        text-align: center;
+      }
 
+      .container {
+        max-width: var(--max-width);
+        margin: 50px auto;
+        padding: var(--padding);
+        background-color: var(--white-color);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+      }
+
+      /* Headings */
+      h1,
+      h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      /* Forms */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 5px;
+        text-align: left;
+        width: 100%;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      /* Buttons */
+      input[type="submit"],
+      .form-group button,
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover,
+      .form-group button:hover,
+      button:hover {
+        background-color: var(--primary-color-hover);
+      }
+
+      /* Form Group and Checkbox */
+      .form-group {
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        font-weight: bold;
+      }
+
+      .form-group input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      /* Contact Info */
+      .contact-info {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .contact-info a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 16px;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .contact-info a:hover {
+        color: var(--primary-color-hover);
+      }
+
+      /* Icons and Avatars */
+      #avatar {
+        width: 75px;
+        height: 85px;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body,
         .container {
-            max-width: var(--max-width);
-            margin: 50px auto;
-            padding: var(--padding);
-            background-color: var(--white-color);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: var(--border-radius);
+          margin: 10px;
+          padding: 15px;
         }
 
-        /* Headings */
         h1,
         h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
+          font-size: 24px;
         }
 
-        /* Forms */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        label {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 5px;
-            text-align: left;
-            width: 100%;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        /* Buttons */
+        label,
         input[type="submit"],
-        .form-group button,
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .form-group button {
+          font-size: 16px;
         }
+      }
 
-        input[type="submit"]:hover,
-        .form-group button:hover,
-        button:hover {
-            background-color: var(--primary-color-hover);
-        }
+      div {
+        background-color: #e9ecf0;
+        border: 1px solid #2c3e50;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      }
 
-        /* Form Group and Checkbox */
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-            text-align: left;
-        }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-        .form-group label {
-            font-weight: bold;
-        }
+      hr {
+        width: 80%;
+        margin: 20px auto;
+        border: 1px solid #000;
+      }
 
-        .form-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
+      .watch-video-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
 
-        /* Contact Info */
-        .contact-info {
-            margin-top: 30px;
-            text-align: center;
-        }
+      .watch-video-btn:hover {
+        background-color: #2980b9;
+      }
 
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 16px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: var(--primary-color-hover);
-        }
-
-        /* Icons and Avatars */
-        #avatar {
-            width: 75px;
-            height: 85px;
-            margin-bottom: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-
-            body,
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-
-            h1,
-            h2 {
-                font-size: 24px;
-            }
-
-            label,
-            input[type="submit"],
-            .form-group button {
-                font-size: 16px;
-            }
-        }
-
-        div {
-            background-color: #e9ecf0;
-            border: 1px solid #2c3e50;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 15px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        hr {
-            width: 80%;
-            margin: 20px auto;
-            border: 1px solid #000;
-        }
-
-        .watch-video-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .watch-video-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .posted-by {
-            font-size: 14px;
-            color: #95a5a6;
-            margin-bottom: 5px;
-        }
+      .posted-by {
+        font-size: 14px;
+        color: #95a5a6;
+        margin-bottom: 5px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     {{posts|safe}}
-</body>
-
+  </body>
 </html>
