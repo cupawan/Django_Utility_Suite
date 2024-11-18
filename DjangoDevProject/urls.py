@@ -8,4 +8,5 @@ urlpatterns = [
     path('dev/', include('YouTubeToolsApp.urls')),
     path('dev/', include('MaintainaceApp.urls')),
     path('dev/', include('DailyActivityLoggerApp.urls')),
+    path('me/', include('BudgetManager.urls')),
     ]

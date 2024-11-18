@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     "RedditPostsApp",
     "YouTubeToolsApp",
     "DailyActivityLoggerApp",
-    "MaintainaceApp"
+    "MaintainaceApp",
+    "BudgetManagerApp"
 ]
 
 MIDDLEWARE = [
