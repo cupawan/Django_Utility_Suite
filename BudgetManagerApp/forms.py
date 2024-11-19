@@ -2,7 +2,7 @@ from django import forms
 
 class FinanceForm(forms.Form):
     date = forms.DateTimeField(
-        widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        widget=forms.DateTimeInput(attrs={'type': 'datetime-local', 'placeholder': 'Enter Date and Time'}),
         label="Date & Time",
         required=True
     )
