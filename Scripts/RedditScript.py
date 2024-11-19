@@ -4,11 +4,11 @@ import os
 
 class RedditData:
     def __init__(self):
-        self.client_id= os.environ["REDDIT_CLIENT_ID"]
-        self.client_secret= os.environ['REDDIT_CLIENT_SECRET']
-        self.username = os.environ['REDDIT_USERNAME']
-        self.password = os.environ['REDDIT_PASSWORD']
-        self.user_agent = os.environ['REDDIT_USER_AGENT']
+        self.client_id= os.environ["RedditClientId"]
+        self.client_secret= os.environ['RedditClientSecret']
+        self.username = os.environ['RedditUsername']
+        self.password = os.environ['RedditPassword']
+        self.user_agent = os.environ['RedditUserAgent']
 
     def auth(self):
         reddit = praw.Reddit(client_id=self.client_id,

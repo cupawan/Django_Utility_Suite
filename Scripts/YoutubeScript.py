@@ -7,7 +7,7 @@ import isodate
 
 class YoutubeData:
     def __init__(self):
-        self.api_key = os.environ["GOOGLE_API_KEY"]
+        self.api_key = os.environ["GoogleApiKey"]
     
     def get_playlist_title(self, playlist_id):
         api_playlist_title_url = f'https://www.googleapis.com/youtube/v3/playlists?part=snippet&id={playlist_id}&key={self.api_key}'

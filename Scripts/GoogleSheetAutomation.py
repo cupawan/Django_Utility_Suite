@@ -4,7 +4,7 @@ import gspread
 
 class GoogleSheetsAutomation:
     def __init__(self):
-        self.secrets_filename = os.environ["GOOGLE_CLIENT_SECRETS_PATH"]
+        self.secrets_filename = os.environ["GoogleClientSecretPath"]
 
     def set_up_gc(self):
         gc = gspread.service_account(filename= self.secrets_filename)
