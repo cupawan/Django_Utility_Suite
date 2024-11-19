@@ -58,8 +58,8 @@ WSGI_APPLICATION = "DjangoDevProject.wsgi.application"
 
 
 
-MONGO_DB_NAME = os.environ['MONGODB_DATABASE']
-MONGO_CLIENT = os.environ['MONGODB_CLIENT']
+MONGO_DB_NAME = os.environ['MongodbDatabase']
+MONGO_CONNECTION_STRING = os.environ['MongodbConnectionString']
 
 AUTH_PASSWORD_VALIDATORS = [
     {
