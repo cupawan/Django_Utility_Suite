@@ -9,4 +9,6 @@ urlpatterns = [
     path('dev/', include('MaintainaceApp.urls')),
     path('dev/', include('DailyActivityLoggerApp.urls')),
     path('me/', include('BudgetManagerApp.urls')),
+    path('me/', include('StravaRunWidgetApp.urls'))
+    
     ]
