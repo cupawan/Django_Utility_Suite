@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from django.core.management.utils import get_random_secret_key
 from dotenv import load_dotenv
+
 print("Environment Loaded:")
 print(load_dotenv("./django_utility_suite/.env"))
 BASE_DIR = Path(__file__).resolve().parent.parent
