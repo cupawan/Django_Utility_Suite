@@ -4,7 +4,7 @@ from Scripts.GarminConnectUtils import GarminUtils
 
 
 def get_strava(request):
-    return render(request, 'StravaRunWidgetAppTemplates/Index.html')
+    return render(request, 'RunWidgetAppTemplates/Index.html')
 
 def get_run_ids(request):
     try:

@@ -2,7 +2,7 @@ import os
 import pytz
 import datetime
 import requests
-from StravaRunWidgetApp.models import RunningModel
+from RunWidgetApp.models import RunningModel
 from garminconnect import (Garmin, GarminConnectAuthenticationError, GarminConnectConnectionError, GarminConnectTooManyRequestsError)
 
 class GarminUtils:

@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "DailyActivityLoggerApp",
     "MaintainaceApp",
     "BudgetManagerApp",
-    "StravaRunWidgetApp"
+    "RunWidgetApp"
 ]
 
 MIDDLEWARE = [
