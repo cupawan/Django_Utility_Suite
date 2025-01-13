@@ -1,7 +1,7 @@
 import os
 import pytz
 import datetime
-from garminconnect import Garmin
+from garminconnect import (Garmin, GarminConnectAuthenticationError, GarminConnectConnectionError, GarminConnectTooManyRequestsError)
 from StravaRunWidgetApp.models import RunningModel
 
 class GarminUtils:
@@ -15,23 +15,21 @@ class GarminUtils:
         return api
     
     def getRunId(self):
-        print("Inside getRunIds")
+        output = []
         try:
             result = RunningModel.objects.filter(run_date=self.today_c_date)
-            print(f"Result: {result}")
             output = result.values_list('run_id', flat=True)
-            print(f"output: {output}")
         except RunningModel.DoesNotExist:
             print("No record found for today's date.")
-            activities_by_date = self.api.get_activities_by_date(self.today_c_date)
-            for activity in activities_by_date:
-                if activity['activityType']['typeKey'] == "running":
-                    print("Running Activity Found")
-                    new_record = RunningModel.objects.create(run_date=self.today_c_date, run_id=activity['activityId'])
-                    print(f"Record inserted with Run ID: {new_record.run_id} for Date: {new_record.run_date}")
-                    output.append(activity['activityId'])
-                else:
-                    output = []
+            try:
+                activities_by_date = self.api.get_activities_by_date(self.today_c_date)
+                for activity in activities_by_date:
+                    if activity['activityType']['typeKey'] == "running":
+                        new_record = RunningModel.objects.create(run_date=self.today_c_date, run_id=activity['activityId'])
+                        print(f"Record inserted with Run ID: {new_record.run_id} for Date: {new_record.run_date}")
+                        output.append(activity['activityId'])
+            except (GarminConnectConnectionError, GarminConnectAuthenticationError, GarminConnectTooManyRequestsError) as err:
+                print("Error occurred during Garmin Connect communication: %s", err)
         print(f"Found {len(output)} ids")                  
         return output
                 
