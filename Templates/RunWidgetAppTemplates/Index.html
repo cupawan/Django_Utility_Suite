@@ -107,7 +107,7 @@
     <script>
       async function loadGarminFrames() {
         try {
-          const response = await fetch("{% url 'get_run_ids' %}");
+          const response = await fetch("{% url 'get_garmin_run_ids' %}");
           const activityIds = await response.json();
 
           const garminFramesContainer = document.getElementById("garmin-frames");

@@ -3,10 +3,10 @@ from django.http import JsonResponse
 from Scripts.GarminConnectUtils import GarminUtils
 
 
-def get_strava(request):
+def get_strava_frames(request):
     return render(request, 'RunWidgetAppTemplates/Index.html')
 
-def get_run_ids(request):
+def get_garmin_run_ids(request):
     try:
         utils = GarminUtils()
         run_ids = utils.getRunId()
