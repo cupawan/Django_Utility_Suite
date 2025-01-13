@@ -135,7 +135,34 @@
       <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/87703900/activity-summary/52c2915f7a1be9363f8d6623791bd461f42fb5d9'></iframe>
 
 <iframe height='454' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/87703900/latest-rides/52c2915f7a1be9363f8d6623791bd461f42fb5d9'></iframe>
-      <div class="contact-info">
+      
+<div id="garmin-frames"></div>
+
+<script>
+  async function loadGarminFrames() {
+    try {
+      const response = await fetch("/get_run_ids/");
+      const activityIds = await response.json();
+
+      const garminFramesContainer = document.getElementById("garmin-frames");
+      activityIds.forEach((id) => {
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://connect.garmin.com/modern/activity/embed/${id}`;
+        iframe.width = "465";
+        iframe.height = "500";
+        iframe.frameBorder = "0";
+        garminFramesContainer.appendChild(iframe);
+      });
+    } catch (error) {
+      console.error("Error fetching Garmin activity IDs:", error);
+    }
+  }
+
+  loadGarminFrames();
+</script>
+
+
+        <div class="contact-info">
         <p>
           <a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a>
         </p>
