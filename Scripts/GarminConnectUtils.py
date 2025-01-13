@@ -7,7 +7,6 @@ from garminconnect import (Garmin, GarminConnectAuthenticationError, GarminConne
 
 class GarminUtils:
     def __init__(self):
-        self.api = self.setUpGarmin()
         self.today_c_date = datetime.date.today().strftime("%Y-%m-%d")
         
     def setUpGarmin(self):
@@ -23,6 +22,7 @@ class GarminUtils:
         except RunningModel.DoesNotExist:
             print("No record found for today's date.")
             try:
+                self.api = self.setUpGarmin()
                 activities_by_date = self.api.get_activities_by_date(self.today_c_date)
                 for activity in activities_by_date:
                     if activity['activityType']['typeKey'] == "running":
