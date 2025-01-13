@@ -19,6 +19,10 @@ class GarminUtils:
         try:
             result = RunningModel.objects.filter(run_date=self.today_c_date)
             output = list(result.values_list('run_id', flat=True))
+            print(f"For {self.today_c_date}, There are {output}")
+            new_record = RunningModel.objects.create(run_date=self.today_c_date, run_id="17988009165")
+            print(f"Record inserted with Run ID: {new_record.run_id} for Date: {new_record.run_date}")
+            
         except RunningModel.DoesNotExist:
             print("No record found for today's date.")
             try:
