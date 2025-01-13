@@ -18,7 +18,7 @@ class GarminUtils:
         output = []
         try:
             result = RunningModel.objects.filter(run_date=self.today_c_date)
-            output = result.values_list('run_id', flat=True)
+            output = list(result.values_list('run_id', flat=True))
         except RunningModel.DoesNotExist:
             print("No record found for today's date.")
             try:
