@@ -1,9 +1,7 @@
 from pathlib import Path
 import os
 from django.core.management.utils import get_random_secret_key
-from dotenv import load_dotenv
 
-load_dotenv("./django_utility_suite/.env")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
@@ -76,6 +74,17 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+DATABASES = {
+    'default': {
+        'ENGINE': "django.db.backends.mysql",
+        'NAME': 'cupawan$garmindb',
+        'USER': 'cupawan',
+        'PASSWORD': os.environ['PawMySqlPassword'],
+        'HOST': 'cupawan.mysql.pythonanywhere-services.com',
+        'PORT': '3306',              
+    }
+}
 
 LANGUAGE_CODE = "en-us"
 

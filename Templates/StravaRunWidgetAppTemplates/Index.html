@@ -124,6 +124,7 @@
           font-size: 16px;
         }
       }
+      
     </style>
   </head>
   <body>
@@ -131,37 +132,13 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-strava" viewBox="0 0 16 16">
         <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766zm4.694 9.125-1.372 2.756L8.66 9.125H6.547L10.053 16l3.484-6.875z"/>
       </svg>
-      <h2>Strava Running</h2>
+      <h2>Running</h2>
       <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/87703900/activity-summary/52c2915f7a1be9363f8d6623791bd461f42fb5d9'></iframe>
-
+    
+    
 <iframe height='454' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/87703900/latest-rides/52c2915f7a1be9363f8d6623791bd461f42fb5d9'></iframe>
-      
+
 <div id="garmin-frames"></div>
-
-<script>
-  async function loadGarminFrames() {
-    try {
-      const response = await fetch("/get_run_ids/");
-      const activityIds = await response.json();
-
-      const garminFramesContainer = document.getElementById("garmin-frames");
-      activityIds.forEach((id) => {
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://connect.garmin.com/modern/activity/embed/${id}`;
-        iframe.width = "465";
-        iframe.height = "500";
-        iframe.frameBorder = "0";
-        garminFramesContainer.appendChild(iframe);
-      });
-    } catch (error) {
-      console.error("Error fetching Garmin activity IDs:", error);
-    }
-  }
-
-  loadGarminFrames();
-</script>
-
-
         <div class="contact-info">
         <p>
           <a href="mailto:cupawan.newsletter@gmail.com"><b>Email</b></a>
@@ -178,5 +155,27 @@
         </p>
       </div>
     </div>
+    <script>
+      async function loadGarminFrames() {
+        try {
+          const response = await fetch("{% url 'get_run_ids' %}");
+          const activityIds = await response.json();
+    
+          const garminFramesContainer = document.getElementById("garmin-frames");
+          activityIds.forEach((id) => {
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://connect.garmin.com/modern/activity/embed/${id}`;
+            iframe.width = "465";
+            iframe.height = "500";
+            iframe.frameBorder = "0";
+            garminFramesContainer.appendChild(iframe);
+          });
+        } catch (error) {
+          console.error("Error fetching Garmin activity IDs:", error);
+        }
+      }
+      
+      loadGarminFrames();
+    </script>
   </body>
 </html>
