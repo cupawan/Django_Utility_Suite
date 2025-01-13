@@ -1,8 +1,9 @@
 import os
 import pytz
 import datetime
-from garminconnect import (Garmin, GarminConnectAuthenticationError, GarminConnectConnectionError, GarminConnectTooManyRequestsError)
+import requests
 from StravaRunWidgetApp.models import RunningModel
+from garminconnect import (Garmin, GarminConnectAuthenticationError, GarminConnectConnectionError, GarminConnectTooManyRequestsError)
 
 class GarminUtils:
     def __init__(self):
@@ -28,7 +29,7 @@ class GarminUtils:
                         new_record = RunningModel.objects.create(run_date=self.today_c_date, run_id=activity['activityId'])
                         print(f"Record inserted with Run ID: {new_record.run_id} for Date: {new_record.run_date}")
                         output.append(activity['activityId'])
-            except (GarminConnectConnectionError, GarminConnectAuthenticationError, GarminConnectTooManyRequestsError) as err:
+            except (GarminConnectConnectionError, GarminConnectAuthenticationError, GarminConnectTooManyRequestsError, requests.exceptions.HTTPError) as err:
                 print("Error occurred during Garmin Connect communication: %s", err)
         print(f"Found {len(output)} ids")                  
         return output
