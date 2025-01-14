@@ -16,11 +16,9 @@ class GarminUtils:
     
     def getRunId(self):
         output = []
-        try:
-            result = RunningModel.objects.filter(run_date=self.today_c_date)
-            output = list(result.values_list('run_id', flat=True))
-        except RunningModel.DoesNotExist:
-            print("No record found for today's date.")
+        result = RunningModel.objects.filter(run_date=self.today_c_date)
+        output = list(result.values_list('run_id', flat=True))
+        if len(output) == 0:
             try:
                 self.api = self.setUpGarmin()
                 activities_by_date = self.api.get_activities_by_date(self.today_c_date)
@@ -31,6 +29,5 @@ class GarminUtils:
                         output.append(activity['activityId'])
             except (GarminConnectConnectionError, GarminConnectAuthenticationError, GarminConnectTooManyRequestsError, requests.exceptions.HTTPError) as err:
                 print("Error occurred during Garmin Connect communication: %s", err)
-        print(f"Found {len(output)} ids")                  
         return output
                 
