@@ -12,7 +12,7 @@ def log_view(request):
         if form.is_valid():
             try:
                 data = {
-                    'Date': form.cleaned_data.get('date', ).strftime('%d %b %Y, %H:%M'),
+                    'Date': form.cleaned_data.get('date', ).strftime('%A, %B %d, %Y'),
                     'How Much': form.cleaned_data['howmuch'],
                     'Who': form.cleaned_data['who'],
                     'Paid To': form.cleaned_data['paidto']
