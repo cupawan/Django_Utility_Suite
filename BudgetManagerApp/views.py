@@ -25,7 +25,7 @@ def log_view(request):
                 ingest_data.insert(0,data['Date'])        
                 gs = GoogleSheetsAutomation()
                 ws = gs.select_worksheet(sheet_name="MasterSheet", worksheet_index=2)
-                gs.insert_values(sheet = ws, append_row= list(ingest_data.values()))
+                gs.insert_values(sheet = ws, append_row= list(ingest_data))
                 random_quote = RandomQuote().get_random_quote()
                 return render(request, 'BudgetManagerAppTemplates/Success.html', {'random_quote': random_quote})
             except Exception as e:
