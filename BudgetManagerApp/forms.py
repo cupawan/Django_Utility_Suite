@@ -53,8 +53,11 @@ class FinanceForm(forms.Form):
         required=True
     )
     
-    paidto = forms.IntegerField(
-        label="Paid to: ",
-        min_value=0,
+    paidto = forms.ChoiceField(
+        label="Paid To",
+        choices=[
+            ('Pitaji', 'Pitaji'),
+            ('Other', 'Other')
+        ],
         required=True
     )

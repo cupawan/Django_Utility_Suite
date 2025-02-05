@@ -22,7 +22,8 @@ def log_view(request):
                     if i == data['Who']:
                         payers_dict.update({i:data['How Much']})
                 ingest_data = list(payers_dict.values())
-                ingest_data.insert(0,data['Date'])        
+                ingest_data.insert(0,data['Date'])   
+                ingest_data.insert(-1,data['Paid To'])     
                 gs = GoogleSheetsAutomation()
                 ws = gs.select_worksheet(sheet_name="MasterSheet", worksheet_index=2)
                 gs.insert_values(sheet = ws, append_row= list(ingest_data))
