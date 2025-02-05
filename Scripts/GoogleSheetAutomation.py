@@ -60,9 +60,11 @@ class GoogleSheetsAutomation:
             print(f"Error while formatting sheet: {e}")
             return False
     def upload_basic(self, filename,folder_id="1ICryXSfoNB-5S8pdQJ8VYTuwF_M8_tLC"):
+        print("Starting file upload process")
         with open(filename, "wb+") as destination:
             for chunk in filename.chunks():
                 destination.write(chunk)
+        print("Starting Google Drive API Process")
         SERVICE_ACCOUNT_FILE = self.secrets_filename
         SCOPES = ["https://www.googleapis.com/auth/drive"]
         creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
