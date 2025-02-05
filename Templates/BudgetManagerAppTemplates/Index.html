@@ -146,13 +146,23 @@
       <h2>Expense Tracker</h2>
       <form method="post">
         {% csrf_token %}
-        <div class="form-group">{{ form.date.label_tag }} {{ form.date }}</div>
+        <!-- <div class="form-group">{{ form.date.label_tag }} {{ form.date }}</div>
         <div class="form-group">
           {{ form.howmuch.label_tag }} {{ form.howmuch }}
         </div>
         <div class="form-group">{{ form.why.label_tag }} {{ form.why }}</div>
         <div class="form-group">{{ form.mode.label_tag }} {{ form.mode }}</div>
+        <div class="form-group"> -->
+
+        <!-- Another form -->
+        <div class="form-group">{{ form.date.label_tag }} {{ form.date }}</div>
         <div class="form-group">
+          {{ form.howmuch.label_tag }} {{ form.howmuch }}
+        </div>
+        <div class="form-group">{{ form.who.label_tag }} {{ form.who }}</div>
+        <div class="form-group">{{ form.paidto.label_tag }} {{ form.paidto }}</div>
+        <div class="form-group">
+
           <button type="submit">Submit</button>
         </div>
       </form>
