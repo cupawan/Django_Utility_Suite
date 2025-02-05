@@ -1,6 +1,11 @@
 import os
 import json
 import gspread
+import google.auth
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
+from google.oauth2.service_account import Credentials
 
 class GoogleSheetsAutomation:
     def __init__(self):
@@ -54,3 +59,21 @@ class GoogleSheetsAutomation:
         except Exception as e:
             print(f"Error while formatting sheet: {e}")
             return False
+    def upload_basic(self, filename,folder_id="1ICryXSfoNB-5S8pdQJ8VYTuwF_M8_tLC"):
+        with open(filename, "wb+") as destination:
+            for chunk in filename.chunks():
+                destination.write(chunk)
+        SERVICE_ACCOUNT_FILE = self.secrets_filename
+        SCOPES = ["https://www.googleapis.com/auth/drive"]
+        creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+        try:
+            service = build("drive", "v3", credentials=creds)
+            file_metadata = {"name": filename}
+            file_metadata["parents"] = [folder_id]
+            media = MediaFileUpload(filename, mimetype="image/jpeg")
+            file = (service.files().create(body=file_metadata, media_body=media, fields="id").execute())
+            print(f'File ID: {file.get("id")}')
+            return file.get("id")
+        except HttpError as error:
+            print(f"An error occurred: {error}")
+            return None
