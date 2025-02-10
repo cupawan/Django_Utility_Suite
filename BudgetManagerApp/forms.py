@@ -61,4 +61,3 @@ class FinanceForm(forms.Form):
         ],
         required=True
     )
-    invoice = forms.FileField()
